@@ -10,9 +10,9 @@ namespace CreativeTim.Argon.DotNetCore.Free.Data.Seeders
         where TIdentityUser : IdentityUser, new()
         where TIdentityRole : IdentityRole, new()
     {
-        private const string DefaultAdminRoleName = "Administrator";
-        private const string DefaultAdminUserEmail = "admin@argon.com";
-        private const string DefaultAdminUserPassword = "Secret1+";
+        private const string DefaultAdminRoleName = "admin";
+        private const string DefaultAdminUserEmail = "admin@envr.biz";
+        private const string DefaultAdminUserPassword = "admin@envr.biz";
 
         private static async Task CreateDefaultAdminRole(RoleManager<TIdentityRole> roleManager)
         {
@@ -34,7 +34,7 @@ namespace CreativeTim.Argon.DotNetCore.Free.Data.Seeders
 
         private static async Task<TIdentityUser> CreateDefaultAdminUser(UserManager<TIdentityUser> userManager)
         {
-            var user = await userManager.FindByEmailAsync("admin@argon.com");
+            var user = await userManager.FindByEmailAsync(DefaultAdminUserEmail);
             if (user == null)
             {
                 user = new TIdentityUser

@@ -58,7 +58,7 @@ namespace CreativeTim.Argon.DotNetCore.Free
                 // The easiest option for development outside a container is to use SQLite
                 // options.UseSqlite(Configuration.GetConnectionString("SqliteConnection"));
                 // Or use this for PostgreSQL:
-                options.UseNpgsql(Configuration.GetConnectionString("PostgresConnection"));
+                options.UseNpgsql(Configuration.GetConnectionString("Postgres"));
 
                 // Use this to connect to a MySQL server:
                 // options.UseMySQL(Configuration.GetConnectionString("MysqlConnection"));
@@ -80,12 +80,12 @@ namespace CreativeTim.Argon.DotNetCore.Free
                 options.Lockout.AllowedForNewUsers = true;
 
                 // Default Password settings.
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 6;
-                options.Password.RequiredUniqueChars = 1;
+                options.Password.RequiredUniqueChars = 0;
 
                 // Default SignIn settings.
                 options.SignIn.RequireConfirmedEmail = false;
